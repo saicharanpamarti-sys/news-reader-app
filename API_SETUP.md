@@ -11,8 +11,8 @@ The following API keys have been set up in `.env`:
 VITE_NEWS_PROVIDER=thenewsapi
 VITE_THENEWSAPI_KEY=VB0GD6o7HN1ywufaG4p5szmSq2GpdB9m8Cx6rv5Y
 VITE_NEWSDATA_KEY=pub_30533ebdf1cb42478bac5c4cf0d7212f
-VITE_NEWSAPIORG_KEY=14dd514c3cf049cfbad64d28acfe3839
-VITE_GNEWS_KEY=a709a700e2b5f2a91ae8faade689dfcb
+VITE_WORLDNEWSAPI_KEY=8caf4cc08aab4ee193d590d3ade5c943
+VITE_NEWSAPIORG_KEY=YOUR_NEWSAPI_ORG_KEY_HERE
 VITE_DEFAULT_COUNTRY=in
 VITE_DEFAULT_LANGUAGE=en
 ```
@@ -23,14 +23,14 @@ VITE_DEFAULT_LANGUAGE=en
 - **Provider Selection**: Set `VITE_NEWS_PROVIDER` to one of:
   - `thenewsapi` (default)
   - `newsdata`
+  - `worldnewsapi`
   - `newsapiorg`
-  - `gnews`
 
 - **Key Loading**: Each provider uses its corresponding API key:
   - `VITE_THENEWSAPI_KEY` → TheNewsAPI
   - `VITE_NEWSDATA_KEY` → NewsData.io
+  - `VITE_WORLDNEWSAPI_KEY` → WorldNewsAPI
   - `VITE_NEWSAPIORG_KEY` → NewsAPI.org
-  - `VITE_GNEWS_KEY` → GNews
 
 ### Frontend Integration
 1. Environment variables are loaded via Vite's `import.meta.env`

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext'; // New import
 
-const SignInModal = ({ isOpen, onClose, onSignIn }) => {
+const SignInModal = ({ isOpen, onClose, onSignIn, isForced = false }) => { // Added isForced prop
   const [email, setEmail] = useState('');
+  const { signIn } = useAuth();
 
   if (!isOpen) return null;
 
   const handleContinue = (e) => {
     e.preventDefault();
     if (email.trim()) {
-      // For now, just simulate sign-in with email (can expand to password step later)
-      onSignIn({ email });
-      onClose();
+      // Simulate sign-in with email
+      signIn(email); // Calls context signIn
+      onClose?.(); // Optional close from parent
     }
   };
 
@@ -19,17 +21,23 @@ const SignInModal = ({ isOpen, onClose, onSignIn }) => {
     // Future: trigger real OAuth popup
   };
 
+  const headerTitle = isForced ? 'Preview Time Over' : 'Sign in';
+  const headerText = isForced ? 'Sign in to continue unlimited access.' : 'New user? Create an account';
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
         {/* Header */}
         <div className="p-8 pb-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">
-            Sign in
+            {headerTitle}
           </h2>
           <p className="text-center text-gray-600 dark:text-gray-300 mb-6">
-            New user?{' '}
-            <a href="#" className="text-blue-600 hover:underline font-medium">
+            {headerText}
+            {isForced && (
+              <span className="block text-yellow-600 mt-1">Your free preview has ended.</span>
+            )}
+            <a href="#" className="text-blue-600 hover:underline font-medium block mt-1">
               Create an account
             </a>
           </p>

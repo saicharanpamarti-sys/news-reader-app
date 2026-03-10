@@ -27,7 +27,7 @@ const ErrorMessage = ({ message }) => {
           <div className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
             <p className="flex items-start gap-2">
               <span className="text-blue-600 mt-1">📌</span>
-              <span><strong>Try a Different News Provider:</strong> Use the dropdown at the top to switch to NewsData.io, NewsAPI.org, or GNews</span>
+              <span><strong>Try a Different News Provider:</strong> Use the dropdown at the top to switch to NewsData.io, WorldNewsAPI, or NewsAPI.org</span>
             </p>
             <p className="flex items-start gap-2">
               <span className="text-blue-600 mt-1">📌</span>
